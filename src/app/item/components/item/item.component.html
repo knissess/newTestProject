@@ -1,1 +1,5 @@
-<p>item works!</p>
+<ng-container *ngIf="item$ | async as item">
+  <div>{{ item.name }}</div>
+  <div>{{ item.price }}</div>
+  <div>{{ item.description }}</div>
+</ng-container>

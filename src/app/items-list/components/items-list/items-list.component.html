@@ -1,2 +1,18 @@
-<p>items-list works!</p>
-<button (click)="getItemsList()">getItemsList</button>
+<div class="content">
+    <button [routerLink]="'/add-item'">
+        Добавить новый item
+    </button>
+    
+    <ng-container *ngIf="items$ | async as list">
+      <div class="content__item" *ngFor="let item of list">
+        <div>
+          {{ item.name }}
+        </div>
+        <div>
+          {{ item.price }}
+        </div>
+        <button class="content__item_btn" [routerLink]="'/item'" [queryParams]="{id: item.id}">Подробнее</button>
+      </div>
+    </ng-container>
+    
+</div>

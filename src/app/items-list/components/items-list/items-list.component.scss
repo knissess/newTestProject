@@ -1,0 +1,14 @@
+
+
+.content {
+    margin: 20px;
+    &__item {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        &_btn {
+            cursor: pointer;
+        }
+    }
+}
