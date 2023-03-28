@@ -1,1 +1,41 @@
-<p>add-item works!</p>
+<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+  <div class="row">
+    <div class="row__label">Имя</div>
+    <input formControlName="name" />
+
+    <div
+      *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].touched"
+    >
+      Не указано имя
+    </div>
+  </div>
+  <div class="row">
+    <div class="row__label">Описание</div>
+    <input formControlName="description" />
+
+    <div
+      *ngIf="
+        myForm.controls['description'].invalid &&
+        myForm.controls['description'].touched
+      "
+    >
+      Не указано описание
+    </div>
+  </div>
+  <div class="row">
+    <div class="row__label">Цена</div>
+    <input formControlName="price" />
+    <div
+      *ngIf="
+        myForm.controls['price'].invalid && myForm.controls['price'].touched
+      "
+    >
+      Некорректная цена
+    </div>
+  </div>
+  <div>
+    <button mat-button [disabled]="myForm.invalid">Отправить</button>
+  </div>
+</form>
+
+<button mat-button routerLink="">На главную</button>

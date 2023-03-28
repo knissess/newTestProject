@@ -1,18 +1,16 @@
 <div class="content">
-    <button [routerLink]="'/add-item'">
-        Добавить новый item
-    </button>
-    
-    <ng-container *ngIf="items$ | async as list">
-      <div class="content__item" *ngFor="let item of list">
-        <div>
-          {{ item.name }}
-        </div>
-        <div>
-          {{ item.price }}
-        </div>
-        <button class="content__item_btn" [routerLink]="'/item'" [queryParams]="{id: item.id}">Подробнее</button>
+  <button mat-button color="primary" [routerLink]="'/add-item'">Добавить новый item</button>
+
+  <ng-container *ngIf="items$ | async as list">
+    <div class="content__item" *ngFor="let item of list">
+      <div
+        class="content__item_btn"
+        [routerLink]="'/item'"
+        [queryParams]="{ id: item.id }"
+      >
+        Название: {{ item.name }}
       </div>
-    </ng-container>
-    
+      <div class="content__item_price">Цена: {{ item.price }}</div>
+    </div>
+  </ng-container>
 </div>

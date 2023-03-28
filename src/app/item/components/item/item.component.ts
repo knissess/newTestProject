@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { ItemInformation } from 'src/models/item-information.model';
 import { GetCurrentItemService } from '../../services/get-current-item.service';
 import { Observable } from 'rxjs';
@@ -24,9 +24,6 @@ export class ItemComponent implements OnInit {
         this.id = params['id'];
         return this.getCurrentItemService.getItems(this.id);
       }),
-      tap((r) => {
-        console.log('r', r);
-      })
     );
   }
 }

@@ -8,7 +8,7 @@ import {
 import { Observable, of } from 'rxjs';
 import { ItemModel } from '../models/item.model';
 import { ItemDetail } from 'src/models/item-detail.model';
-import { ItemInformation } from 'src/models/item-information.model';
+import { AddItemModel } from 'src/models/add-item.model';
 
 @Injectable()
 export class Interceptor implements HttpInterceptor {
@@ -65,6 +65,24 @@ export class Interceptor implements HttpInterceptor {
       };
 
       return of(new HttpResponse({ status: 200, body: itemInformation }));
+    }
+
+    if (url.endsWith('/add') && method === 'POST') {
+      const reqBody = request.body as AddItemModel;
+      const newItem = {
+        id: this.itemsList.length + 1,
+        name: reqBody.name,
+        price: reqBody.price,
+      };
+
+      const newDetail = {
+        id: this.itemsList.length + 1,
+        description: reqBody.description,
+      };
+      this.itemsList.push(newItem);
+      this.itemsListDetails.push(newDetail);
+
+      return of(new HttpResponse({ status: 200, body: 'SUCCESS' }));
     }
     return of(null);
   }

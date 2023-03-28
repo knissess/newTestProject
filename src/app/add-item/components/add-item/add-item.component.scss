@@ -1,0 +1,15 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  &__label {
+    width: 200px;
+  }
+  input {
+    margin-right: 30px;
+  }
+}
+
+button {
+  margin: 10px;
+}
