@@ -1,37 +1,43 @@
 <form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
   <div class="row">
     <div class="row__label">Имя</div>
-    <input formControlName="name" />
-
-    <div
+    <mat-form-field>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+    <mat-error
       *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].touched"
     >
-      Не указано имя
-    </div>
+      Не указано имя</mat-error
+    >
   </div>
   <div class="row">
     <div class="row__label">Описание</div>
-    <input formControlName="description" />
+    <mat-form-field>
+      <input matInput formControlName="description" />
+    </mat-form-field>
 
-    <div
+    <mat-error
       *ngIf="
         myForm.controls['description'].invalid &&
         myForm.controls['description'].touched
       "
     >
       Не указано описание
-    </div>
+    </mat-error>
   </div>
   <div class="row">
     <div class="row__label">Цена</div>
-    <input formControlName="price" />
-    <div
+    <mat-form-field>
+      <input matInput formControlName="price" />
+    </mat-form-field>
+
+    <mat-error
       *ngIf="
         myForm.controls['price'].invalid && myForm.controls['price'].touched
       "
     >
       Некорректная цена
-    </div>
+    </mat-error>
   </div>
   <div>
     <button mat-button [disabled]="myForm.invalid">Отправить</button>

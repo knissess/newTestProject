@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AddItemService } from './services/add-item.service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [AddItemComponent],
@@ -13,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule.forChild([{ path: '', component: AddItemComponent }]),
     ReactiveFormsModule,
     MatButtonModule,
+    MatInputModule,
   ],
   providers: [AddItemService],
 })
